@@ -73,7 +73,7 @@
   --typewriterCharacters: 25;
 }
 
-h3 {
+h33 {
   font-size: clamp(1rem, 3vw + 1rem, 4rem);
   position: relative;
   font-family: "Source Code Pro", monospace;
@@ -81,8 +81,8 @@ h3 {
   width: max-content;
 }
 
-h3::before,
-h3::after {
+h33::before,
+h33::after {
   content: "";
   position: absolute;
   top: 0;
@@ -91,7 +91,7 @@ h3::after {
   left: 0;
 }
 
-h3::before {
+h33::before {
   background: var(--bg-color);
   animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards;
 }
