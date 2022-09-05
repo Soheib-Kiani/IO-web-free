@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+.fade-in-left {
+	-webkit-animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+ @-webkit-keyframes fade-in-left {
+  0% {
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fade-in-left {
+  0% {
+    -webkit-transform: translateX(-50px);
+            transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+/* ---------------------------------------------------------------------- */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(0vh);
+  visibility: hidden;
+  transition: opacity 900ms ease-out, transform 600ms ease-out,
+    visibility 1200ms ease-out;
+  will-change: opacity, transform, visibility;
+}
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+/* ------------------------------------------------------ */
+.form-left{
+  transform: translateX(-50%);
+}
+
+.form-right{
+  transform: translateX(50%);
+
+}
+
+.form-left,
+.form-right {
+  transition: transform 400ms ease-in;
+}
+
+.form-left.appear,
+.form-right.appear {
+  transform: translateX(0);
+}
+/* ---------------------------------------------- */
+:root {
+  --bg-color: rgb(255, 208, 0);
+  --typewriterSpeed: 2s;
+  --typewriterCharacters: 25;
+}
+
+h3 {
+  font-size: clamp(1rem, 3vw + 1rem, 4rem);
+  position: relative;
+  font-family: "Source Code Pro", monospace;
+  position: relative;
+  width: max-content;
+}
+
+h3::before,
+h3::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+h3::before {
+  background: var(--bg-color);
+  animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards;
+}
+
+/* h3::after {
+  width: 0.125em;
+  background: black;
+  animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards, blink 750ms steps(var(--typewriterCharacters)) infinite;
+} */
+
+.subtitle {
+  color: hsla(0deg, 0%, 0%, 0.7);
+  font-size: 100px;
+  font-weight: 1000;
+  opacity: 0;
+  transform: translateY(3rem);
+  animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 2s) forwards;
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+@keyframes blink {
+  to {
+    background: transparent;
+  }
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+#yt-link {
+  position: absolute;
+  bottom: 200px;
+  width: 100%;
+  color: hsla(0deg, 0%, 0%, 0.7);
+}
+#yt-link:hover, #yt-link:focus {
+  color: teal;
+}
+/* ---------------------------------------------------- */
+.h4 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 5s linear alternate infinite;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 822;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
